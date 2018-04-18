@@ -172,6 +172,70 @@ app.get('/bygdr/:gender', function (req, res) {
 
 
 });
+app.get('/byfandg/:fld/:gender', function (req, res) {
+    var obj =
+        {
+            fields :req.params.fld,
+           gender: req.params.gender
+
+        }
+    condidate.find(obj, function (err, result) {
+
+        if (err) {
+
+            throw err;
+        }
+        res.send(result);
+
+
+    });
+
+
+});
+app.get('/byfandpandg/:fld/:posi/:gender', function (req, res) {
+    var obj =
+        {
+            fields :req.params.fld,
+            position: req.params.posi,
+            gender:req.params.gender
+
+        }
+    condidate.find(obj, function (err, result) {
+
+        if (err) {
+
+            throw err;
+        }
+        res.send(result);
+
+
+    });
+
+
+});
+app.get('/byfandpandgandy/:fld/:posi/:gender/:yofexp', function (req, res) {
+    var obj =
+        {
+            fields :req.params.fld,
+            position: req.params.posi,
+            gender:req.params.gender,
+            yofexp:req.params.yofexp
+
+        }
+    condidate.find(obj, function (err, result) {
+
+        if (err) {
+
+            throw err;
+        }
+        res.send(result);
+
+
+    });
+
+
+});
+
 app.post('/ADD', function (req,res) {
     var result =req.body
     condidate.create(result,function (err,result) {

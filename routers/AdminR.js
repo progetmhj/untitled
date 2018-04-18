@@ -96,4 +96,42 @@ app.get('/byr/:roles', function (req, res) {
     });
 
 });
+app.post('/ADD', function (req,res) {
+    var result =req.body
+    admin.create(result,function (err,result) {
+
+        if (err) {
+
+          console.log("username or email already exist")
+        }
+        res.send(result);
+
+
+    });
+
+});
+app.put('/updt/:_id', function (req,res) {
+    var result =req.body
+    admin.findByIdAndUpdate(req.params._id,result,function (err,result) {
+
+        if (err) {
+
+            console.log("username or email already exist")
+        }
+        res.send(result);
+
+    });
+});
+app.delete('delte/:_id', function (req,res) {
+
+    admin.findByIdAndRemove(req.params._id,function (err,result) {
+
+        if (err) {
+
+            throw err;
+        }
+        res.send(result);
+        console.log("deleted")
+    });
+});
 module.exports=app;

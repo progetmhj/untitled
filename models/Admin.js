@@ -8,10 +8,14 @@ var adminshema=mongoose.Schema({
         type:String
     },
     username:{
-        type:String
+        type:String,
+        lowercase:true,
+        unique:true
     },
     email:{
-        type:String
+        type:String,
+        lowercase:true,
+        unique:true
     },
     password:{
       type:String
