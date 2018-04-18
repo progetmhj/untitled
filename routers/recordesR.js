@@ -12,7 +12,7 @@ app.get('/all',function (req,res) {
     })
 
 });
-app.get('/byna/:name', function (req, res) {
+app.get('/byn/:name', function (req, res) {
     var obj =
         {
             name:req.params.name
