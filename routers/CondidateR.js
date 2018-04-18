@@ -152,6 +152,26 @@ app.get('/byfandpandyexp/:fld/:posi/:yofexp', function (req, res) {
 
 
 });
+app.get('/bygdr/:gender', function (req, res) {
+
+
+    var obj =
+        {
+           gender:req.params.gender
+        }
+    condidate.find(obj, function (err, result) {
+
+        if (err) {
+
+            throw err;
+        }
+        res.send(result);
+
+
+    });
+
+
+});
 app.post('/ADD', function (req,res) {
     var result =req.body
     condidate.create(result,function (err,result) {
