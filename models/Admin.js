@@ -2,23 +2,27 @@ var mongoose =require('mongoose');
 var adminshema=mongoose.Schema({
     first_name:{
         type:String,
-        required:true
+       required:true
     },
     last_name :{
-        type:String
+        type:String,
+        required:true
     },
     username:{
         type:String,
         lowercase:true,
-        unique:true
+        unique:true,
+        required:true
     },
     email:{
         type:String,
         lowercase:true,
-        unique:true
+        unique:true,
+        required:true
     },
     password:{
-      type:String
+      type:String,
+        required:true
     },
     roles:{
         type:[String]

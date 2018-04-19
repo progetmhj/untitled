@@ -100,24 +100,33 @@ app.post('/ADD', function (req,res) {
     var result =req.body
     admin.create(result,function (err,result) {
 
-        if (err) {
+        if (err){
+            if (err.code==11000){
+                console.log("already exist")
+            }
+            else
+                throw err
 
-          console.log("username or email already exist")
         }
+
+
         res.send(result);
 
-
     });
-
 });
 app.put('/updt/:_id', function (req,res) {
     var result =req.body
     admin.findByIdAndUpdate(req.params._id,result,function (err,result) {
+     if (err){
+         if (err.code==11000){
+             console.log("already exist")
+         }
+         else
+         throw err
 
-        if (err) {
+     }
 
-            console.log("username or email already exist")
-        }
+
         res.send(result);
 
     });

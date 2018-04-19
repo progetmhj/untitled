@@ -8,9 +8,11 @@ var clientshema=mongoose.Schema({
 
 
     },
-    Email :{
+    email :{
         type : String,
-        required : true
+        required : true,
+        unique:true,
+        lowercase:true
 
 
     },
@@ -19,9 +21,11 @@ var clientshema=mongoose.Schema({
         required : true
 
     },
-    Username:{
-        type: String,
-        required :true
+    username:{
+        type : String,
+        required : true,
+        unique:true,
+        lowercase:true
 
     },
     Ncontrat:{

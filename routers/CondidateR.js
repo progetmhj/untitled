@@ -240,24 +240,34 @@ app.post('/ADD', function (req,res) {
     var result =req.body
     condidate.create(result,function (err,result) {
 
-        if (err) {
+        if (err){
+            if (err.code==11000){
+                console.log("already exist")
+            }
+            else
+                throw err
 
-            throw err;
         }
+
+
         res.send(result);
 
-
     });
-
 });
 app.put('/updt/:_id', function (req,res) {
     var result =req.body
     condidate.findByIdAndUpdate(req.params._id,result,function (err,result) {
 
-        if (err) {
+        if (err){
+            if (err.code==11000){
+                console.log("already exist")
+            }
+            else
+                throw err
 
-            throw err;
         }
+
+
         res.send(result);
 
     });
